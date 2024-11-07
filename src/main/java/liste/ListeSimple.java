@@ -57,7 +57,8 @@ public class ListeSimple {
                 courant = courant.getSuivant();
             }
 
-                precedent.setSuivant(courant.getSuivant());
+            assert courant != null;
+            precedent.setSuivant(courant.getSuivant());
                 size--;
 
         }
@@ -118,8 +119,8 @@ public class ListeSimple {
     }
 
     public void echanger(Noeud r1, Noeud r2) {
-        if (r1 == r2)
-            return;
+        if (r1 != r2) {
+
         Noeud precedentR1, precedentR2;
         if (r1 != tete && r2 != tete) {
             precedentR1 = getPrecedent(r1);
@@ -139,6 +140,6 @@ public class ListeSimple {
         Noeud temp = r2.getSuivant();
         r2.setSuivant(r1.getSuivant());
         r1.setSuivant(temp);
-    }
+    }}
 
 }
