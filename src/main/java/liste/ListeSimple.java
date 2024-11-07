@@ -56,10 +56,10 @@ public class ListeSimple {
                 precedent = precedent.getSuivant();
                 courant = courant.getSuivant();
             }
-            if (courant != null) {
+
                 precedent.setSuivant(courant.getSuivant());
                 size--;
-            }
+
         }
     }
 
