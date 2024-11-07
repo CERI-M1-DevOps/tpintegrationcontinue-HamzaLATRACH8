@@ -55,15 +55,15 @@ public class ListeSimple {
             }
             Noeud precedent = tete;
             Noeud courant = tete.getSuivant();
-            while (courant != null && courant.getElement() != element) {
-                precedent = precedent.getSuivant();
-                courant = courant.getSuivant();
-            }
+            if(courant != null){
+                while (courant.getElement() != element) {
+                    precedent = precedent.getSuivant();
+                    courant = courant.getSuivant();
+                }
 
-            assert courant != null;
-            precedent.setSuivant(courant.getSuivant());
+                precedent.setSuivant(courant.getSuivant());
                 size--;
-
+            }
         }
     }
 
