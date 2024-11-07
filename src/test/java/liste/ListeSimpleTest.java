@@ -115,6 +115,12 @@ public class ListeSimpleTest {
     }
 
     @Test
+    void modifiePremierVide(){
+        listeATester.modifiePremier(1, 2);
+        assertEquals("ListeSimple()", listeATester.toString());
+    }
+
+    @Test
     public void supprimeTousListeVide() {
         listeATester.supprimePremier(1);
         assertNull(listeATester.tete);
