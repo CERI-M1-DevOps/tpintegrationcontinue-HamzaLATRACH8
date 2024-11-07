@@ -328,4 +328,24 @@ public class ListeSimpleTest {
         assertEquals(0, emptyListe.getSize());
     }
 
+    @Test
+    public void echangerLaTeteAvecUnAutreNoeud() {
+        listeATester.ajout(5);
+        listeATester.ajout(4);
+        listeATester.ajout(3);  // tête de la liste
+        listeATester.ajout(2);
+        listeATester.ajout(1);
+
+        Noeud r1 = listeATester.tete.getSuivant();
+        Noeud r2 = listeATester.tete;
+
+        assertEquals("ListeSimple(Noeud(1), Noeud(2), Noeud(3), Noeud(4), Noeud(5))", listeATester.toString());
+
+        listeATester.echanger(r1, r2);
+
+        assertEquals("ListeSimple(Noeud(2), Noeud(1), Noeud(3), Noeud(4), Noeud(5))", listeATester.toString());
+        assertSame(r2, listeATester.tete.getSuivant());  // Assurer que r2 est maintenant après r1
+    }
+
+
 }
