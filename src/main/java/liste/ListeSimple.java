@@ -15,14 +15,10 @@ public class ListeSimple {
 
     public void modifiePremier(Object element, Object nouvelleValeur) {
         Noeud courant = tete;
-        if(courant == null)
-            return;
-        while (courant.getElement() != element)
+        while (courant != null && courant.getElement() != element)
             courant = courant.getSuivant();
-
-        courant.setElement(nouvelleValeur);
-
-
+        if (courant != null)
+            courant.setElement(nouvelleValeur);
     }
 
     public void modifieTous(Object element, Object nouvelleValeur) {
@@ -56,12 +52,11 @@ public class ListeSimple {
             }
             Noeud precedent = tete;
             Noeud courant = tete.getSuivant();
-            if(courant != null){
-                while (courant.getElement() != element) {
-                    precedent = precedent.getSuivant();
-                    courant = courant.getSuivant();
-                }
-
+            while (courant != null && courant.getElement() != element) {
+                precedent = precedent.getSuivant();
+                courant = courant.getSuivant();
+            }
+            if (courant != null) {
                 precedent.setSuivant(courant.getSuivant());
                 size--;
             }
@@ -123,8 +118,8 @@ public class ListeSimple {
     }
 
     public void echanger(Noeud r1, Noeud r2) {
-        if (r1 != r2) {
-
+        if (r1 == r2)
+            return;
         Noeud precedentR1, precedentR2;
         if (r1 != tete && r2 != tete) {
             precedentR1 = getPrecedent(r1);
@@ -136,7 +131,7 @@ public class ListeSimple {
             precedentR2.setSuivant(tete);
             tete = r2;
         }
-        else {
+        else if (r2 == tete) {
             precedentR1 = getPrecedent(r1);
             precedentR1.setSuivant(tete);
             tete = r1;
@@ -144,6 +139,6 @@ public class ListeSimple {
         Noeud temp = r2.getSuivant();
         r2.setSuivant(r1.getSuivant());
         r1.setSuivant(temp);
-    }}
+    }
 
 }
