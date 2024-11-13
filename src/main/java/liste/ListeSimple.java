@@ -8,11 +8,22 @@ public class ListeSimple {
         return size;
     }
 
+
+    /**
+     * Ajoute un nouvel élément au début de la liste.
+     * @param element l'élément à ajouter dans la liste.
+     */
     public void ajout(int element) {
         tete = new Noeud(element, tete);
         size++;
     }
 
+
+    /**
+     * Modifie la première occurrence d'un élément dans la liste.
+     * @param element l'élément à remplacer.
+     * @param nouvelleValeur la nouvelle valeur de l'élément.
+     */
     public void modifiePremier(Object element, Object nouvelleValeur) {
         Noeud courant = tete;
         while (courant != null && courant.getElement() != element)
@@ -116,6 +127,7 @@ public class ListeSimple {
         }
         return precedent;
     }
+
 
     public void echanger(Noeud r1, Noeud r2) {
         if (r1 == r2)
